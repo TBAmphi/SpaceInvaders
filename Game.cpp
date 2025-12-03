@@ -1,7 +1,7 @@
 #include "Game.h"
 #include <SFML/Graphics.hpp>
 
-Game::Game() : player()  //Liste d'initialisation
+Game::Game() : player(player.position)  //Liste d'initialisation
 {
 
 }
@@ -13,9 +13,13 @@ void Game::Start()
     while(window.isOpen())
     {
         ProcessEvents();
-        Update();
+
+        float deltaTime = clock.restart().asSeconds();
+        Update(deltaTime);
+
         Render();
     }
+    //Clear();
 }
 
 void Game::Render()
@@ -42,21 +46,26 @@ void Game::ProcessEvents()
                     window.close();
                     break;
                 case sf::Keyboard::Q:
-                    player.Move(-1, speed);
+                    player.Move(-1, player.speed);
                     break;
                 case sf::Keyboard::D:
-                    player.Move(1, speed);
+                    player.Move(1, player.speed);
                     break;
-                case sf::Keyboard::Space:
-                    //player.Shoot();
+                case sf::Keyboard::Space:    
+                    //
+                    //shoot
                     break;
             }
         }
     } 
 }
 
-void Game::Update()
-{}
+void Game::Update(float deltaTime)
+{
+
+}
 
 Game::~Game()
-{}
+{
+
+}

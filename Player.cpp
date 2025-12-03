@@ -1,7 +1,7 @@
 #include "Player.h"
 #include <SFML/Graphics.hpp>
 
-Player::Player()
+Player::Player(sf::Vector2f position) : Ship(position)
 {
     shape.setPointCount(3);
     shape.setRadius(30.0f);
@@ -28,9 +28,14 @@ void Player::Move(int direction, float speed)
     }
 }
 
-void Player::PlayerShoot()
+/*void Player::PlayerShoot()
 {
     //currentWeapon.Shoot();
+}*/
+
+void Player::Update()
+{
+
 }
 
 Player::~Player()

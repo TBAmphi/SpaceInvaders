@@ -3,22 +3,31 @@
 
 #include <SFML/Graphics.hpp>
 #include "Player.h"
+#include "Weapon.h"
+#include "Projectile.h"
 
 class Game
 {
 private:
-    sf::RenderWindow window;
-    void Render();
-    void ProcessEvents();
-    Player player;
     float speed = player.speed;
-    //sf::Text score;
-    //sf::Font font;
+    void ProcessEvents();
+    void Render();
+    void Update(float deltaTime);
+
+    Weapon GetWeapon();
+
+    //int GetScore() const;
+    //void AddScore(int value);
+
+    sf::RenderWindow window;
+    Player player;
+    int score;
+    sf::Clock clock;
 public:
     Game();
     void Start();
-    void Update();
     ~Game();
+    sf::Vector2<Projectile*> projectile;
 };
 
 #endif

@@ -8,19 +8,22 @@ class Ship
 {
 protected:
     sf::CircleShape shape;
-    sf::Vector2f position;
-    float life;
+    Weapon* currentWeapon;
+    //float life;
     float speed;
-    Weapon* currentWeapon; // Switch actual weapon --> ammoType
     //Weapon* laser;
+    
+    virtual void Render(sf::RenderWindow& window) = 0;
+    virtual void Update() = 0;
     void Move(int direction, float speed);
-    void Update();
-    IsTakingDamages();
-    IsDead();
+    //IsTakingDamages();
+    //IsDead();
 public:
-    Ship();
+    sf::Vector2f position;
+    Ship(sf::Vector2f position);
     ~Ship();
-    void Render(sf::RenderWindow& window);
+    void SetWeapon(); // set current weapon
+    void GetWeapon();
 };
 
 #endif

@@ -4,15 +4,20 @@
 #include <SFML/Graphics.hpp>
 #include <cstdlib>
 #include <iostream>
+#include <list>
+#include "Projectile.h"
 
 class Weapon
 {
 protected:
     std::string name;
-    int power;
+    int damage;
+    float fireRate;
+    float cooldownTime;
     // AmmoType;
-    void Shoot();
-    void Realod();
+    //void Realod();
+    void Shoot(sf::Vector2f position, std::list<Projectile> projectileList);
+    void UpdateCooldown(float deltaTime);
 public:
     Weapon();
     ~Weapon();

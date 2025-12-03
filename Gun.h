@@ -2,19 +2,20 @@
 #define GUN_H
 
 #include "Weapon.h"
-#include <SFML/Graphics.hpp>
+ 
 
 class Gun : Weapon
 {
 private:
     std::string name = "Gun";
-    int power = 5;
+    int damage = 5;
+    float fireRate = 0.5f;
+    float cooldownTime = 0.0f;
     // ammunition
 public:
     Gun();
-    void Shoot();
+    //void Shoot() override;
     ~Gun();
 };
-
 
 #endif
